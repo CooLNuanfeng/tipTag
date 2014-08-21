@@ -9,7 +9,8 @@
 			height: 'auto',
 			bgColor : '#555',
 			textColor:'#fff',
-			content : '相关内容',
+			content : '相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容',
+			animate : 'slide',    //展开形式
 			className : 'arrowUp'  // 箭头方向
 		}
 		
@@ -22,13 +23,32 @@
 			$obj.mouseover(function(e){
 				
 				creatTip(settings.className, settings.content);
+					
+				var L  = 0;
+				var T = 0
+				switch(settings.className){
+					case 'arrowUp':
+					
+						// 20 : 是样式中的padding
+						L = e.pageX + settings.width > $(window).width() ?  $(window).width() - settings.width -20 : e.pageX;
+						
+						
+					 	T = e.pageY+20
+						
+						
+						$('.tipTag').css({
+							width: settings.width,
+							height:settings.height,
+							left : L,
+							top : e.pageY+20
+						})	
+						break;
+						
+					case 'arrowDown':
+						
+						break;
+				}
 				
-				$('.tipTag').css({
-					width: settings.width,
-					height:settings.height,
-					left : e.pageX-10,
-					top : e.pageY+20
-				})	
 			})
 			
 			$obj.mouseout(function(){
