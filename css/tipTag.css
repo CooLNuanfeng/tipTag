@@ -5,6 +5,4 @@
 .tipTag i{position:absolute; z-index:1000; display:block;}
 .tipTag i.arrowUp{border-bottom:8px solid #555; top:-16px; left:10px; border-left:8px solid transparent;  border-top:8px solid transparent;  border-right:8px solid transparent;}
 .tipTag i.arrowDown{border-bottom:8px solid transparent; bottom:-16px; left:10px; border-left:8px solid transparent;  border-top:8px solid #555;  border-right:8px solid transparent;}
-.tipTag i.arrowLeft{border-bottom:8px solid transparent; top:10px; left:-16px; border-left:8px solid transparent;  border-top:8px solid transparent;  border-right:8px solid #555;}
-.tipTag i.arrowRight{border-bottom:8px solid transparent; top:10px; right:-16px; border-left:8px solid #555;  border-top:8px solid transparent;  border-right:8px solid transparent;}
 .tipTag p{ font-family:"微软雅黑"}
