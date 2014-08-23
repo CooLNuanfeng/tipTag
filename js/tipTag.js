@@ -1,6 +1,6 @@
 // JavaScript Document
 
-;$(function($){
+;(function($){
 	
 	$.fn.tipTag = function(options){
 	
@@ -9,7 +9,8 @@
 			height: 'auto',
 			bgColor : '#555',
 			textColor:'#fff',
-			content : '相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容相关内容',
+			padding: 20,  //设置内容部分的填充值
+			content : '相关内容相关内容相',
 			animate : 'slide',    //展开形式
 			className : 'arrowUp'  // 箭头方向
 		}
@@ -29,19 +30,23 @@
 				switch(settings.className){
 					case 'arrowUp':
 					
-						// 20 : 是样式中的padding
-						L = e.pageX + settings.width > $(window).width() ?  $(window).width() - settings.width -20 : e.pageX;
+						if( e.pageX > $(document).width()/2 ){
+							L = (e.pageX + settings.width > $(document).width() ?  $(document).width() - settings.width - settings.padding : e.pageX - settings.width/2)
+						}else{
+							L =  (e.pageX - settings.width/2 < 0 ? 0 : e.pageX - settings.width/2);
+						}
 						
-						
-					 	T = e.pageY+20
+					 	T = e.pageY +  $(this).height() > $(document).height() ?  e.pageY - $('.tipTag').height() - $(this).height() : e.pageY +  $(this).height()
 						
 						
 						$('.tipTag').css({
 							width: settings.width,
 							height:settings.height,
 							left : L,
-							top : e.pageY+20
-						})	
+							top : T
+						}).find('i').css({
+							left : e.pageX - L
+						})
 						break;
 						
 					case 'arrowDown':
